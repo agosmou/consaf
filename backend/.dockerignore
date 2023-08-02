@@ -1,0 +1,4 @@
+.venv/
+.venvtest/
+tests/
+requirements_test.txt
