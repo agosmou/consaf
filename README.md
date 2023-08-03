@@ -1,6 +1,6 @@
 # [Con]struction [Saf]ety
 Current State:  
-This is a construction safety tooling web app aimed at remote monitoring for your construction site.  
+This is a construction safety tooling web API aimed at remote monitoring for your construction site.  
 It is currently in its infancy. As of now, the api endpoint `/image_analysis` GET's a random image from unsplash using the search query "construction worker." Using the image meta data, the coordinates are stored and used to reverse geo-code a location. Then, it provides the day's weather report. Finally, a Yolov5n object detection model is run to detect PPE in the image, or lack there-of. All of this data is returned as a JSON object to the frontend client.  
 <br>
 Future State:  
