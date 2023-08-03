@@ -220,7 +220,7 @@ DevOps
 
 - [Open-Meteo](https://open-meteo.com/en/docs) for weather data from coordinates
 
-- [Unsplash](https://unsplash.com/documentation)
+- [Unsplash](https://unsplash.com/documentation) for random images
 
 
 ## Testing
