@@ -43,8 +43,7 @@ static site to provide insights based on user inputs
 ## Tech Stack
 
 Frontend  
-- HTML, CSS, JS
-- Bootstrap 5
+- coming soon
 
 Backend and significant pythong packages  
 - Flask
