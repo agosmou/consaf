@@ -1,6 +1,20 @@
 # [Con]struction [Saf]ety
 This is a construction safety tooling web app aimed at remote monitoring for your construction site
 
+## Screenshots
+![image](https://github.com/agosmou/consaf/assets/73868258/6e4c3d9d-a938-4d9a-bdfb-d611cad6b9b0)
+The above image shows the output from the webapp.
+
+![image](https://github.com/agosmou/consaf/assets/73868258/3a8bc89d-3117-4f43-b37f-84fe61ed1e5a)
+The above image shows the randomly generated stock photo that was analyzed with the object detection model
+
+![image](https://github.com/agosmou/consaf/assets/73868258/330838cb-f93b-4fc4-8e8a-f63203dc017b)
+The above image shows the location for the returned coordinates which matches the value for the `"location"` key
+
+![image](https://github.com/agosmou/consaf/assets/73868258/643e35b7-ef2c-485e-bb36-56d8c993cd5c)
+The above image shows the weather for the given location which matches the values for `"apparent_temperature_max"` and `apparent_temperature_min`
+
+## The Future of [Con][Saf]
 [ConSaf 1.0.0 - Major Release]'
 Real time site monitoring via camera on-site
 - Inputs 
@@ -44,7 +58,7 @@ Deployment
 
 ### Set up the API
 shortcut to set up from the server directory  
-Note that we will use Python 3.10 because we will be using yolov5
+*Note that we will use Python 3.10 because we will be using yolov5*  
 `$ py -3.10 -m venv .venv && source .venv/Scripts/activate && pip install -r requirements.txt`
 
 <em>If you need to download python 10 then follow the link below and download the file. MAs you go through the Python 3.10 download wizard, ake sure you check the box that adds python to the PATH variable</em>  
