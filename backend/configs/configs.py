@@ -14,4 +14,4 @@ class DevelopmentConfig(Config):
 
 class ProductionConfig(Config):
     RECAPTCHA_KEY = os.environ.get("PROD_RECAPTCHA_KEY")
-    SERVER_URL = "https://OFFICIALWEBSITENAME.com"
+    SERVER_URL = "https://api.herrkos.com"

@@ -13,7 +13,7 @@ from api.services.services import (
     CleanUpObjectDetection,
 )
 
-ENV = "dev"
+ENV = "prod"
 
 app = Flask(__name__)
 
