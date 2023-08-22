@@ -90,8 +90,8 @@ The above image shows the location for the returned coordinates which matches th
 ![image](https://github.com/agosmou/consaf/assets/73868258/643e35b7-ef2c-485e-bb36-56d8c993cd5c)
 The above image shows the weather for the given location which matches the values for `"apparent_temperature_max"` and `apparent_temperature_min`
 
-## The Future of [Con][Saf]
-[ConSaf 1.0.0 - Major Release]'
+## The Future of Herrkos
+[1.0.0 - Major Release]'
 Real time site monitoring via camera on-site
 - Inputs 
     - constant live video from camera with wifi service to use IP for weather information
@@ -99,7 +99,7 @@ Real time site monitoring via camera on-site
     - safety object detection
     - real time weather monitoring 
 
-[ConSaf 0.1.0 - MVP - alpha]
+[0.1.0 - MVP - alpha]
 static site to provide insights based on user inputs
 - Inputs
     - Image URL
@@ -122,11 +122,10 @@ Backend and significant pythong packages
 - gunicorn as production webserver on Linux
 
 Database
-- 
+- Coming Soon
 
 Deployment
-- 
-- 
+- PythonAnywhere.com
 
 
 ## API
