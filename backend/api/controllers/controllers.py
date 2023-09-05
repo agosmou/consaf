@@ -3,7 +3,6 @@ controllers
 """
 from flask import Flask, jsonify, request
 from configs.configs import DevelopmentConfig, ProductionConfig
-import requests
 from flask_cors import CORS
 from api.services.services import (
     YoloService,
@@ -13,7 +12,7 @@ from api.services.services import (
     CleanUpObjectDetection,
 )
 
-ENV = "prod"
+ENV = "env"
 
 app = Flask(__name__)
 
@@ -55,11 +54,10 @@ def process_image():
     return jsonify(response_data)
 
 
-@app.route("/random_image", methods=["GET"])
-def random_image_url():
+@app.route("/image_analysis", methods=["GET"])
+def image_analysis():
     generate_image_url = RandomImage()
     image_data = generate_image_url.get_random_image()
-
     image_url = image_data.get("regular_image_url")
     latitude = image_data.get("latitude")
     longitude = image_data.get("longitude")
@@ -67,7 +65,6 @@ def random_image_url():
     reverse_geocode = Location()
     location_data = reverse_geocode.get_location(image_data)
     location = location_data.get("location")
-
     new_image_data = {
         "regular_image_url": image_url,
         "latitude": latitude,
@@ -75,45 +72,18 @@ def random_image_url():
         "location": location,
     }
 
-    return jsonify(new_image_data)
-
-
-@app.route("/location_weather", methods=["GET"])
-def location_weather():
-    try:
-        new_image_data_request = requests.get(f"{SERVER_URL}/random_image", timeout=5)
-        new_image_data_request.raise_for_status()
-    except requests.exceptions.RequestException:
-        return {"error": "Error fetching image"}
-
     weather = Weather()
-    weather_data = weather.get_weather(new_image_data_request.json())
-
-    return jsonify(weather_data)
-
-
-@app.route("/image_analysis", methods=["GET"])
-def image_analysis():
-    try:
-        response = requests.get(f"{SERVER_URL}/location_weather", timeout=10)
-        response.raise_for_status()
-    except requests.exceptions.RequestException:
-        return {"error": "Error fetching image and weather data"}
-    image_data = response.json()
+    weather_data = weather.get_weather(new_image_data)
+    image_data = weather_data
     location = image_data.get("location")
     weather = (image_data.get("daily"), image_data.get("daily_units"))
     latitude = image_data.get("latitude")
     longitude = image_data.get("longitude")
     image_url = image_data.get("regular_image_url")
 
-    try:
-        image_response = requests.post(
-            f"{SERVER_URL}/process_image", json={"image_url": image_url}, timeout=60
-        )
-        image_response.raise_for_status()
-    except requests.exceptions.RequestException:
-        return {"error": "Error fetching image analysis data"}
-    image_analysis_data = image_response.json()
+    service = YoloService()
+    predictions = service.process_image_url(image_url)
+    image_analysis_data = {"predictions": predictions}
 
     data_cleanse = CleanUpObjectDetection()
     cleaned_data = data_cleanse.get_analysis_and_clean(image_analysis_data)
