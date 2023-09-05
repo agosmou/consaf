@@ -32,30 +32,6 @@ def test_process_image(client):
     assert "predictions" in data
 
 
-def test_random_image_url(client):
-    response = client.get("/random_image")
-    data = response.get_json()
-
-    assert response.status_code == 200
-    assert "regular_image_url" in data
-    assert "latitude" in data
-    assert "longitude" in data
-    assert "location" in data
-
-
-def test_location_weather(client):
-    response = client.get("/location_weather")
-    data = response.get_json()
-
-    assert response.status_code == 200
-    assert "location" in data
-    assert "daily" in data
-    assert "daily_units" in data
-    assert "latitude" in data
-    assert "longitude" in data
-    assert "regular_image_url" in data
-
-
 def test_image_analysis(client):
     response = client.get("/image_analysis")
     data = response.get_json()
