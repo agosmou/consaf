@@ -1,3 +1,5 @@
+UPDATE 12/12/2023: killed deployed instance. Run locally to use this program.
+
 # HERRKOS - [Con]struction [Saf]ety
 
 ![image](https://github.com/agosmou/consaf/assets/73868258/fe68abc4-4294-4b51-8664-f19a657746e6)
